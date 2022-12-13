@@ -52,5 +52,3 @@ function evaluate(player, computer){
 
     return won_or_lost;
 }
-
-console.log(game());
