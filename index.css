@@ -1,0 +1,19 @@
+* {
+    margin:0;
+    padding:0;
+}
+#main{
+    width:100vw;
+    height:100vh;
+    display:flex;
+    border:1px solid green;
+    justify-content:space-evenly;
+    align-items:center;
+}
+
+.element{
+    width:25%;
+    height:15%;
+    font-size:2em;
+    font-family:'Courier New', Courier, monospace;
+}
