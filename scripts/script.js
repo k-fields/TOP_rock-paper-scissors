@@ -1,6 +1,11 @@
+document.addEventListener('click', (e) => {
+    if(e.target.localName !== 'button') return;
+    console.log(e.target.classList[0]);
+}, false);
+
 function game(){
     for (let i = 1; i <= 5; i++){
-        const playerSelection = prompt("Choose: rock, paper or scissors.");
+        
         const computerSelection = getComputerChoice();
 
         console.log("Game "+i+": you " + evaluate(playerSelection, computerSelection));
