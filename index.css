@@ -17,14 +17,15 @@
 }
 
 .element{
+    flex-shrink:15%;
     width:25%;
-    height:15%;
+    height:45%;
     font-size:2em;
     font-family:'Courier New', Courier, monospace;
 }
 
-.score-div{
-    border:1px solid hotpink;
+.score-panel{
+    /*border:1px solid hotpink;*/
     height:50vh;
     display:flex;
     flex-direction: column;
@@ -32,11 +33,29 @@
 }
 
 .score{
+    margin-top:2%;
     justify-self:flex-start;
     font-size:2.5em;
 }
 
 .score-you-computer{
+    /*border:1px solid green; */
+    width:80%;
+    height:75%;
     font-size:2.5em;
     justify-self:center;
+    display:flex;
+    justify-content:space-between;
+}
+
+.machine-points, .you-points{
+    display:flex;
+    flex-direction: column;
+    border:1px solid red;
+}
+
+.points{
+    justify-self:center;
+    align-self:center;
+    font-size:4em;
 }
