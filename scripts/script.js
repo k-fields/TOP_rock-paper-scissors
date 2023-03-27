@@ -1,4 +1,6 @@
 var playerSelection = '';
+var playerPoints = 0;
+var computerPoints = 0;
 
 document.addEventListener('click', (e) => {
     if(e.target.localName === 'button'){
@@ -34,8 +36,11 @@ function game(playerSelection){
     }
         
     const computerSelection = getComputerChoice();
-    const result = evaluate
-    return "You: "+playerSelection+ " | Computer: "+computerSelection+" | Result: you " + evaluate(playerSelection, computerSelection);
+    const result = evaluate(playerSelection,computerSelection);
+    if (result){
+        return "You: "+playerSelection+ " | Computer: "+computerSelection+" | Result: you " + result;
+    }
+    
 }
 
 
@@ -79,8 +84,20 @@ function evaluate(player, computer){
         else won_or_lost = 'got a tie';
     }
     else{
-        won_or_lost = null;
+        return null;
     }
+    //adding points
+    const playerScore = document.getElementsByClassName('player-points');
+    const computerScore = document.getElementsByClassName('computer-points');
+    if (won_or_lost == 'won'){
+        playerPoints++;
+        playerScore[0].textContent = playerPoints;
+    }
+    if (won_or_lost == 'lost'){
+        computerPoints++;
+        computerScore[0].textContent = computerPoints;
+    }
+
 
     return won_or_lost;
 }
