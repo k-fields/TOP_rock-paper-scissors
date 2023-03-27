@@ -4,10 +4,13 @@ document.addEventListener('click', (e) => {
     if(e.target.localName === 'button'){
         if (e.target.classList[0] === 'play-button') {
             let result = game(playerSelection);
-            console.log(result)
-            addHistory(result);
-            playerSelection = '';
-            return;
+
+            if (result){
+                console.log(result)
+                addHistory(result);
+                playerSelection = '';
+                return;
+            }
         }
         playerSelection = e.target.classList[0];
     }
@@ -20,6 +23,7 @@ function addHistory(result){
     latestResult.setAttribute('class','game-result');
     latestResult.innerText = result;
     resultPanel[0].appendChild(latestResult);
+    resultPanel[0].scrollTop = resultPanel[0].scrollHeight;
 }
 
 function game(playerSelection){
@@ -30,7 +34,7 @@ function game(playerSelection){
     }
         
     const computerSelection = getComputerChoice();
-
+    const result = evaluate
     return "You: "+playerSelection+ " | Computer: "+computerSelection+" | Result: you " + evaluate(playerSelection, computerSelection);
 }
 
@@ -75,7 +79,7 @@ function evaluate(player, computer){
         else won_or_lost = 'got a tie';
     }
     else{
-        won_or_lost = 'Choose a valid option: "rock", "paper" or "scissors".';
+        won_or_lost = null;
     }
 
     return won_or_lost;
